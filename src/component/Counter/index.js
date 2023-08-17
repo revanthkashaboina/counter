@@ -16,14 +16,24 @@ class Counter extends Component{
         }))
     }
 
+    onReset = ()=>{
+        this.setState({count : 0})
+    }
+
+
     render(){
-        const {count} = this.state
+        let {count} = this.state
+        if (count <=0){
+            count =0
+        }
+
         return(
             <div className='container'>
                 <h1 className='counter'>Count : {count}</h1>
                 <div>
                 <button className='button' onClick = {this.onIncrease}>Increase</button>
                 <button className='button' onClick = {this.onDecrease}>Decrease</button>
+                <button className='button' onClick={this.onReset}>RESET</button>
                 </div>
             </div>
         )
